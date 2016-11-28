@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+
+<% if user_signed_in? %>
+  <div class="col-md-4">
+    <ul>
+      <li>Name: <%= current_user.username %></li>
+      <li>Email: <%= current_user.email %></li>
+    </ul>
+  </div>
+<% end %>
