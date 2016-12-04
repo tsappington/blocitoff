@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
+
+  resources :items, only: [:create]
 
   get 'about' => 'welcome#about'
 
   authenticated :user do
     get 'profile' => 'users#show'
-    # root 'users#show', as: :root
   end
 
   unauthenticated :user do
     get 'profile' => 'welcome#index'
-    # root 'welcome#index', as: :unauthenticated
   end
 
   root 'welcome#index'
