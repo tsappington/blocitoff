@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
-  
+
+  resources :items, only: [:create]
+
   get 'about' => 'welcome#about'
+
+  authenticated :user do
+    get 'profile' => 'users#show'
+  end
+
+  unauthenticated :user do
+    get 'profile' => 'welcome#index'
+  end
 
   root 'welcome#index'
 
