@@ -1,0 +1,7 @@
+
+<% if @item.valid? %>
+  $('#todos').append("<%= escape_javascript(render partial: 'items/item', locals: { item: @item }) %>");
+  $('#item_name').val('');
+<% else %>
+  $('.flash').prepend("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><%= flash.now[:alert] %></div>");
+<% end %>
