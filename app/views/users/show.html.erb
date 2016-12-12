@@ -11,13 +11,13 @@
     <table id="todos">
       <thead>
         <tr>
-          <td colspan="2">To-Do List</td>
+          <td colspan="3">To-Do List</td>
         </tr>
       </thead>
       <tr>
         <th>Description</th>
-        <!-- <th>Days left</th> -->
         <th>Complete</th>
+        <th>Item Age</th>
       </tr>
       <% @user.items.each do |item| %>
         <%= render partial: 'items/item', locals: { item: item } %>
